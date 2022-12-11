@@ -1,6 +1,6 @@
-package com.elpan.plugins
+package com.elpan.playlistmaker.infrastructure.plugins
 
-import com.elpan.routes.userRouting
+import com.elpan.playlistmaker.application.routes.userRouting
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*

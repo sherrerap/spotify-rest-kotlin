@@ -1,5 +1,6 @@
-package com.elpan
+package com.elpan.playlistmaker
 
+import com.elpan.playlistmaker.infrastructure.plugins.configureRouting
 import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
@@ -21,7 +22,7 @@ class ApplicationTest {
         }
         client.get("/").apply {
             assertEquals(HttpStatusCode.OK, status)
-            assertEquals("Hello World!", bodyAsText())
+            assertEquals("Hello World from Playlist Maker!", bodyAsText())
         }
     }
 }

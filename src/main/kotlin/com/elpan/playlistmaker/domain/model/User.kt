@@ -1,4 +1,4 @@
-package com.elpan.models
+package com.elpan.playlistmaker.domain.model
 
 import kotlinx.serialization.Serializable
 

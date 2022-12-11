@@ -1,4 +1,4 @@
-package com.elpan.plugins
+package com.elpan.playlistmaker.infrastructure.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.plugins.contentnegotiation.*

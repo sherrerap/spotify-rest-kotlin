@@ -1,6 +1,6 @@
-package com.elpan.routes
+package com.elpan.playlistmaker.application.routes
 
-import com.elpan.models.*
+import com.elpan.playlistmaker.domain.model.User
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
