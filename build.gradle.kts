@@ -27,7 +27,10 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("io.insert-koin:koin-core:3.2.2")
+    implementation("com.adamratzman:spotify-api-kotlin-core:3.8.8")
+
+    testImplementation("io.insert-koin:koin-test:3.2.2")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
-    implementation("com.adamratzman:spotify-api-kotlin-core:3.8.8")
 }

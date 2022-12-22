@@ -2,11 +2,12 @@ package com.elpan.playlistmaker
 
 import com.elpan.playlistmaker.domain.service.DisplayControl
 import com.elpan.playlistmaker.domain.service.QueryService
-import com.elpan.playlistmaker.domain.service.SearchService
+import com.elpan.playlistmaker.domain.service.impl.SearchServiceImpl
+import io.ktor.server.application.*
 
 suspend fun main() {
 
-    val searchService = SearchService()
+    val searchService = SearchServiceImpl()
     searchService.buildSearchAPI()
 
     val displayControl = DisplayControl()
