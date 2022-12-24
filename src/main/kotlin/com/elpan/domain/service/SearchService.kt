@@ -1,14 +1,12 @@
 package com.elpan.domain.service
 
 import com.adamratzman.spotify.SpotifyCredentials
-import com.adamratzman.spotify.models.Artist
-import com.adamratzman.spotify.models.PagingObject
-import com.adamratzman.spotify.models.SpotifyPublicUser
-import com.adamratzman.spotify.models.SpotifySearchResult
+import com.adamratzman.spotify.models.*
 
 interface SearchService {
     suspend fun buildSearchAPI(credentials: SpotifyCredentials)
-    suspend fun userSearch(credentials: SpotifyCredentials, userQuery: String): SpotifyPublicUser?
-    suspend fun trackSearch(credentials: SpotifyCredentials, searchQuery: String): SpotifySearchResult
+    suspend fun allTypesSearch(credentials: SpotifyCredentials, query: String): SpotifySearchResult
     suspend fun artistSearch(credentials: SpotifyCredentials, artistQuery: String): PagingObject<Artist>
+    suspend fun profileSearch(credentials: SpotifyCredentials, userQuery: String): SpotifyPublicUser?
+    suspend fun trackSearch(credentials: SpotifyCredentials, trackQuery: String): PagingObject<Track>
 }
