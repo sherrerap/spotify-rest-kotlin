@@ -12,9 +12,9 @@ import kotlinx.coroutines.async
 fun Route.getSpotifyTrackRouting(credentials: SpotifyCredentials) {
     val searchService = SearchServiceImpl()
 
-    route("/tracks/{trackQuery}") {
+    route("/tracks/{searchQuery}") {
         get {
-            val trackQuery = call.parameters["trackQuery"].toString()
+            val trackQuery = call.parameters["searchQuery"].toString()
 
             var results: SpotifySearchResult? = null
 
