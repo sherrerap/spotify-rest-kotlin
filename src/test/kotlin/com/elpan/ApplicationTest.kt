@@ -1,23 +1,25 @@
 package com.elpan
 
-import io.ktor.server.routing.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.request.*
+import com.adamratzman.spotify.SpotifyCredentials
+import com.elpan.infrastructure.plugins.defaultRouting
+import com.elpan.infrastructure.plugins.spotifyRouting
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import kotlin.test.*
+import io.ktor.http.*
 import io.ktor.server.testing.*
-import com.elpan.plugins.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
         application {
-            configureRouting()
+            val credentials = SpotifyCredentials()
+            credentials.clientId = environment.config.propertyOrNull("spotify.api.clientId")?.getString()
+            credentials.clientSecret = environment.config.propertyOrNull("spotify.api.clientSecret")?.getString()
+
+            defaultRouting()
+            spotifyRouting(credentials)
         }
         client.get("/").apply {
             assertEquals(HttpStatusCode.OK, status)
