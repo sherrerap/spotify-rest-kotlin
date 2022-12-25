@@ -1,13 +1,15 @@
-package com.elpan
+package com.elpan.playlistmaker
 
 import com.adamratzman.spotify.SpotifyCredentials
-import com.elpan.infrastructure.plugins.*
+import com.elpan.playlistmaker.infrastructure.plugins.configureSerialization
+import com.elpan.playlistmaker.infrastructure.plugins.defaultRouting
+import com.elpan.playlistmaker.infrastructure.plugins.spotifyRouting
 import io.ktor.server.application.*
+import io.ktor.server.netty.*
 import io.ktor.server.plugins.contentnegotiation.*
 
 fun main(args: Array<String>): Unit =
-    io.ktor.server.netty.EngineMain.main(args)
-
+    EngineMain.main(args)
 
 
 @Suppress("unused") // application.conf references the main function. This annotation prevents the IDE from marking it as unused.

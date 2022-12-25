@@ -1,7 +1,7 @@
-package com.elpan.infrastructure.plugins
+package com.elpan.playlistmaker.infrastructure.plugins
 
 import com.adamratzman.spotify.SpotifyCredentials
-import com.elpan.application.routes.searchRoutes
+import com.elpan.playlistmaker.application.routes.rest.searchRoutes
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*

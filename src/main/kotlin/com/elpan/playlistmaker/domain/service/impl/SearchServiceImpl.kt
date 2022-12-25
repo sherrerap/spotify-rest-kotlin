@@ -1,11 +1,11 @@
-package com.elpan.domain.service.impl
+package com.elpan.playlistmaker.domain.service.impl
 
 import com.adamratzman.spotify.SpotifyAppApi
 import com.adamratzman.spotify.SpotifyCredentials
 import com.adamratzman.spotify.models.*
 import com.adamratzman.spotify.spotifyAppApi
 import com.adamratzman.spotify.utils.Market
-import com.elpan.domain.service.SearchService
+import com.elpan.playlistmaker.domain.service.SearchService
 
 class SearchServiceImpl() : SearchService {
     private var api: SpotifyAppApi? = null

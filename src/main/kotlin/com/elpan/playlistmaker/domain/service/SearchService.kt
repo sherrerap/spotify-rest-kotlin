@@ -1,4 +1,4 @@
-package com.elpan.domain.service
+package com.elpan.playlistmaker.domain.service
 
 import com.adamratzman.spotify.SpotifyCredentials
 import com.adamratzman.spotify.models.*

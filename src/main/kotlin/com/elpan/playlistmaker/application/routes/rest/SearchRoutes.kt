@@ -1,8 +1,8 @@
-package com.elpan.application.routes
+package com.elpan.playlistmaker.application.routes.rest
 
 import com.adamratzman.spotify.SpotifyCredentials
 import com.adamratzman.spotify.models.*
-import com.elpan.domain.service.impl.SearchServiceImpl
+import com.elpan.playlistmaker.domain.service.impl.SearchServiceImpl
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
