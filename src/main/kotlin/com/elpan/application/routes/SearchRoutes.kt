@@ -24,7 +24,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.artistSearch(credentials, artistQuery)
             }.await()
 
-            call.respond(results.toString())
+            call.respond(message = results?.items as List<Artist>, status = HttpStatusCode.OK)
         }
     }
 
@@ -38,7 +38,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 spotifyPublicUser = searchService.profileSearch(credentials, profileQuery)
             }.await()
 
-            call.respondText(spotifyPublicUser.toString())
+            call.respond(message = spotifyPublicUser as SpotifyPublicUser, status = HttpStatusCode.OK)
         }
     }
 
@@ -52,7 +52,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.allTypesSearch(credentials, query)
             }.await()
 
-            call.respond(results.toString())
+            call.respond(message = results as SpotifySearchResult, status = HttpStatusCode.OK)
         }
     }
 
@@ -66,9 +66,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.trackSearch(credentials, trackQuery)
             }.await()
 
-            call.respond(message = results.toString(), status = HttpStatusCode.OK)
+            call.respond(message = results?.items as List<Track>, status = HttpStatusCode.OK)
         }
     }
-
-
 }
