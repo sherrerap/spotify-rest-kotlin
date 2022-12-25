@@ -8,8 +8,10 @@ import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.coroutines.async
+import mu.KotlinLogging
 
 fun Route.searchRoutes(credentials: SpotifyCredentials) {
+    val logger = KotlinLogging.logger {}
     val searchService = SearchServiceImpl()
 
     route("/artists") {
