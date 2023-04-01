@@ -1,4 +1,4 @@
-package com.elpan.playlistmaker.infrastructure.plugins
+package com.elpan.spotifyrest.infrastructure.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
