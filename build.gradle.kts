@@ -1,11 +1,11 @@
-val ktor_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
+val ktorVersion: String by project
+val kotlinVersion: String by project
+val logbackVersion: String by project
 
 plugins {
     kotlin("jvm") version "1.8.10"
     kotlin("plugin.serialization").version("1.8.10")
-    id("io.ktor.plugin") version "2.2.3"
+    id("io.ktor.plugin") version "2.2.4"
 }
 
 group = "com.elpan"
@@ -22,16 +22,16 @@ repositories {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
-    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
-    implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("io.ktor:ktor-server-core-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
     implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
     implementation("com.adamratzman:spotify-api-kotlin-core:3.8.8")
-    testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation("io.ktor:ktor-server-tests-jvm:$ktorVersion")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }

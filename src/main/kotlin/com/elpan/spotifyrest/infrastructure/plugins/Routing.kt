@@ -1,8 +1,7 @@
-package com.elpan.playlistmaker.infrastructure.plugins
+package com.elpan.spotifyrest.infrastructure.plugins
 
 import com.adamratzman.spotify.SpotifyCredentials
-import com.elpan.playlistmaker.application.routes.routes.playlistRoutes
-import com.elpan.playlistmaker.application.routes.routes.searchRoutes
+import com.elpan.spotifyrest.application.routes.searchRoutes
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
@@ -18,6 +17,5 @@ fun Application.defaultRouting() {
 fun Application.spotifyRouting(credentials: SpotifyCredentials) {
     routing {
         searchRoutes(credentials)
-        playlistRoutes(credentials)
     }
 }
