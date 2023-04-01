@@ -24,16 +24,20 @@ class SearchServiceImpl() : SearchService {
         return api!!.search.searchArtistRestAction(artistQuery, 50, 1, market = Market.CO).complete()
     }
 
+    override suspend fun playlistSearch(
+        credentials: SpotifyCredentials, playlistQuery: String
+    ): PagingObject<SimplePlaylist> {
+        buildSearchAPI(credentials)
+        return api!!.search.searchPlaylistRestAction(playlistQuery, 50, 1, market = Market.CO).complete()
+    }
+
     override suspend fun profileSearch(credentials: SpotifyCredentials, userQuery: String): SpotifyPublicUser? {
         buildSearchAPI(credentials)
         return api!!.users.getProfileRestAction(userQuery).complete()
     }
 
-
     override suspend fun trackSearch(credentials: SpotifyCredentials, trackQuery: String): PagingObject<Track> {
         buildSearchAPI(credentials)
         return api!!.search.searchTrackRestAction(trackQuery, 50, 1, market = Market.CO).complete()
     }
-
-
 }

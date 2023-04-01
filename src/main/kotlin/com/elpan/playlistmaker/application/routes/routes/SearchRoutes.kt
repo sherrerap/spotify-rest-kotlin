@@ -1,4 +1,4 @@
-package com.elpan.playlistmaker.application.routes.rest
+package com.elpan.playlistmaker.application.routes.routes
 
 import com.adamratzman.spotify.SpotifyCredentials
 import com.adamratzman.spotify.models.*
@@ -24,7 +24,21 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.artistSearch(credentials, artistQuery)
             }.await()
 
-            call.respond(message = results?.items as List<Artist>, status = HttpStatusCode.OK)
+            call.respond(message = results?.items!!, status = HttpStatusCode.OK)
+        }
+    }
+
+    route("/playlists") {
+        get {
+
+            val playlistQuery = call.parameters["q"].toString()
+            var results: PagingObject<SimplePlaylist>? = null
+
+            async {
+                results = searchService.playlistSearch(credentials, playlistQuery)
+            }.await()
+
+            call.respond(message = results?.items!!, status = HttpStatusCode.OK)
         }
     }
 
@@ -38,7 +52,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 spotifyPublicUser = searchService.profileSearch(credentials, profileQuery)
             }.await()
 
-            call.respond(message = spotifyPublicUser as SpotifyPublicUser, status = HttpStatusCode.OK)
+            call.respond(message = spotifyPublicUser!!, status = HttpStatusCode.OK)
         }
     }
 
@@ -52,7 +66,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.allTypesSearch(credentials, query)
             }.await()
 
-            call.respond(message = results as SpotifySearchResult, status = HttpStatusCode.OK)
+            call.respond(message = results!!, status = HttpStatusCode.OK)
         }
     }
 
@@ -66,7 +80,7 @@ fun Route.searchRoutes(credentials: SpotifyCredentials) {
                 results = searchService.trackSearch(credentials, trackQuery)
             }.await()
 
-            call.respond(message = results?.items as List<Track>, status = HttpStatusCode.OK)
+            call.respond(message = results?.items!!, status = HttpStatusCode.OK)
         }
     }
 }
